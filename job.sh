@@ -8,7 +8,19 @@
 #SBATCH --output=%x.log
 #SBATCH --error=%x.log
 
+# Example of how to run a single-node DMTCP checkpointed task in SLURM on
+# Cheaha.
+
+# Load necessary modules for this example.
 module load DMTCP/2.5.0
-module load Anaconda3
+module load Anaconda3/2020.11
+
+# To run this you will need to build the environment from env.yml. To do so
+# please run: `conda env create --file env.yml`
 conda activate dmtcp-tutorial
-dmtcp_launch -i 5 "python -u task.py 100" # -u means unbuffered, we get logging in real-time
+
+# Launches a dmtcp checkpointed task with example computations. The flag -i
+# accepts a checkpoint interval in seconds. The python flag -u requests
+# unbuffered streams, so logging is real-time. The value 100 is the number of
+# steps to run in the loop in `task.py`.
+dmtcp_launch -i 5 "python -u task.py 100"
