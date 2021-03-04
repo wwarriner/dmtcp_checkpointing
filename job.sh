@@ -23,4 +23,4 @@ conda activate dmtcp-tutorial
 # accepts a checkpoint interval in seconds. The python flag -u requests
 # unbuffered streams, so logging is real-time. The value 100 is the number of
 # steps to run in the loop in `task.py`.
-dmtcp_launch -i 5 "python -u task.py 100"
+dmtcp_launch -i 5 python -u task.py 100

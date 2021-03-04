@@ -76,7 +76,7 @@ def interface() -> None:
         help="positive integer number of steps to run, clipped to 100",
     )
     args = parser.parse_args()
-    steps = args.steps[0]
+    steps = args.steps
     steps = min(steps, 100)
     task(steps)
 
